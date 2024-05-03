@@ -10,18 +10,9 @@ const canvas = document.createElement('canvas');
 const canvasForPieceNextP1 = document.createElement('canvas');
 const canvasForPieceNextP2 = document.createElement('canvas');
 
-var CELL_SIZE = null;
-var CELL_SIZE_GAME = null;
+var CELL_SIZE = 25;
+var CELL_SIZE_GAME = 35;
 
-// ALI c'est ici pour la taille des canvas
-if (window.matchMedia("(max-width: 500px)").matches) {
-    //alert("telephone vue")
-    CELL_SIZE = 15;
-    CELL_SIZE_GAME = 23;
-} else {
-    CELL_SIZE = 25;
-    CELL_SIZE_GAME = 35;
-}
 canvas.width = CELL_SIZE_GAME *10;
 canvas.height = CELL_SIZE_GAME *20;
 canvasForPieceNextP1.width = CELL_SIZE *4;
@@ -43,18 +34,8 @@ const nextlevelDiv = document.getElementById('next-level');
 
 const ROWS = 20;
 const COLS = 10;
-// Ali ici pour la taille des cellules
- // 30 pour next-pieces
 var Player1  = { id:1, color:'Purple', currentX:1, currentY:0, currentPiece:null, nextPiece:null,  }
 var Player2 = { id:2, color:'Green', currentX:6, currentY:0, currentPiece:null, nextPiece:null,  }
-
-// test image
-
-// Créez une nouvelle instance d'objet Image
-var img = new Image();
-// Spécifiez le chemin de l'image à charger
-img.src = '/css/brick.jpg';
-img.onload = function() {return true}
 
 /*                  */
 /* CONFIG VARIABLES */
@@ -208,13 +189,10 @@ function drawNextPieceGrid(player){
         for (let c = 0; c < pieceShape[r].length; c++) {
             if (player.id == 1) {
                 if (pieceShape[r][c]) {
-                    ctxNextPiece1.drawImage(img, (c*CELL_SIZE), (r*CELL_SIZE), CELL_SIZE, CELL_SIZE);
-/*
                     ctxNextPiece1.fillStyle = color;
                     ctxNextPiece1.fillRect(c * (CELL_SIZE), r * (CELL_SIZE), (CELL_SIZE), (CELL_SIZE));
                     ctxNextPiece1.strokeStyle = "white";
                     ctxNextPiece1.strokeRect(c * (CELL_SIZE), r * (CELL_SIZE), (CELL_SIZE), (CELL_SIZE));
-                    */
                 }
             }else{
                 if (pieceShape[r][c]) {
@@ -853,7 +831,6 @@ const btnColorJ2 = document.getElementById("selectedColorJ2");
 const startBtn = document.getElementById("startBtn");
 const modeGhostBtn = document.getElementById('btnGhost');
 const menuBtn = document.getElementById('menuBtn');
-const menuBtnS = document.getElementById('menuBtnS');
 
 btnColorJ1.innerHTML = Player1.color;
 btnColorJ2.innerHTML = Player2.color;
@@ -906,12 +883,7 @@ function changeDiff(){
 menuBtn.addEventListener("click", function() {
     togglePauseMenu();
 });
-// RETURN MENU BTN smartphone
-menuBtnS.addEventListener("click", function() {
-    menuW.style.display = "block";
-    gameW.style.display = "none";
-    isEnd = true;
-});
+
 
 // CHANGE COLOR PLAYER PART //
 var actualColorInArrayindex1 = 0
@@ -1046,19 +1018,6 @@ function turnMusicOnOff(){
 playMusicButton.addEventListener("click", () => {turnMusicOnOff()});
 playMusicButtonMenu.addEventListener("click", () => {turnMusicOnOff()});
 /* --- SOUND PART END --- */
-
-// --- Détection des clics sur le pad graphique en mode vue de téléphone < 500px PART START --- //
-document.getElementsByClassName('leftPad')[1].addEventListener("click", () => {handleKeyPress(object = {keyCode: 37})});
-document.getElementsByClassName('rightPad')[1].addEventListener("click", () => {handleKeyPress(object = {keyCode: 39})});
-document.getElementsByClassName('upPad')[1].addEventListener("click", () => {handleKeyPress(object = {keyCode: 38})});
-document.getElementsByClassName('downPad')[1].addEventListener("click", () => {handleKeyPress(object = {keyCode: 40})});
-
-document.getElementsByClassName('leftPad')[0].addEventListener("click", () => {handleKeyPress(object = {keyCode: 81})});
-document.getElementsByClassName('rightPad')[0].addEventListener("click", () => {handleKeyPress(object = {keyCode: 68})});
-document.getElementsByClassName('upPad')[0].addEventListener("click", () => {handleKeyPress(object = {keyCode: 90})});
-document.getElementsByClassName('downPad')[0].addEventListener("click", () => {handleKeyPress(object = {keyCode: 83})});
-// --- Détection des clics sur le pad graphique en mode vue de téléphone < 500px PART END --- //
-
 
 // --- Menu Pause PART START --- //
 document.addEventListener('keydown', function (event) {

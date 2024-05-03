@@ -82,71 +82,6 @@
 	top: .2em;
 }
 
-
-/* Smartphone */
-.menu-btn, .start-btn{
-    border-radius: 5px;
-    text-align: center;
-    font-size:12px;
-    background-color:rgb(51, 48, 48);
-    color:grey;
-    font-weight:200;
-    text-shadow: -1px -1px rgb(255, 255, 255), 1px 1px black;
-}
-
-/* PAD DIRECTIONNEL */
-.divCursor {
-    display: grid;
-    grid-template-columns: repeat(3, 35px);
-    grid-template-rows: repeat(3, 35px);
-    gap: 5px; /* Add gutter or spacing here */
-}
-.options{
-    margin:0 20px;
-}
-.pads{
-    max-width: 360px;
-    display: flex;
-    justify-content: space-between;
-    margin: 9px 0;
-}
-.pad {
-    margin-top:5px;
-    position: relative;
-    width:35px;
-    height: 35px;
-}
-.carre, .fleche {
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 20%;
-    background-color:rgb(51, 48, 48);
-    color:grey;
-    box-shadow: 0.1em .1em #7c7c7c; 
-}
-
-.carre {
-    width: 100%;
-    height: 100%;
-}
-
-.fleche {
-    transform: rotate(45deg);
-    width: 80%;
-    height: 80%;
-    top:45%;
-    left:10%;
-}
-.leftPad{
-    transform:rotate(-90deg)
-}
-.rightPad{
-    transform:rotate(90deg)
-}
-.downPad{
-    transform:rotate(180deg)
-}
 /* Menu Screen */
 @media screen and (min-width:500px){
     .pads{display:none;}
@@ -159,62 +94,6 @@
 @media screen and (max-width:770px){
     #gameMode .ghost, #gameMode .difficulty {
         font-size:14px;
-    }
-}
-/* Menu Smartphone */
-@media screen and (max-width:500px){
-    .pads{
-        max-width: 360px;
-        display: flex;
-        justify-content: space-between;
-        margin: 9px 0;
-    }
-    .sounds, .colorChoice {
-        font-size:17px;
-    }
-
-   #colorChoiceJ1, #colorChoiceJ2{
-        font-size:12px;
-    }
-    .colors p, #volumeMusicDiv {
-        margin: 0 15px;
-        font-size:12px;
-    }
-    #volumeEffectDiv {
-        font-size:11.5px;
-    }
-    .menu-btn, .start-btn, #gameMode button, #startBtn,
-     #selectedColorJ1, #selectedColorJ2, #playMusicButton{
-       margin:10px;
-    }
-    .menu-btn, .start-btn, #gameMode button, #startBtn, #playMusicButton{
-       width:90%; 
-    }
-    .roundBtn{
-        width: 28px;
-        height: 28px;
-        font-size: 16px;
-        line-height: 0px;
-    }
-    .bestScore{
-        margin-top:20px;
-        font-size:11px !important;
-    }
-    #gameMode button, #startBtn, #playMusicButton {
-        font-size:16px;
-    }
-    .ghost, .difficulty{
-        font-size:12px !important;
-    }
-    #playMusicButton {
-        margin-bottom:10px;
-        height:44px;
-    }
-    .menu-btn, .start-btn{
-        font-size: 10px;
-    }
-    #selectedColorJ1, #selectedColorJ2{
-        font-size: 13px !important;
     }
 }
 
@@ -238,7 +117,6 @@
 	-moz-box-shadow: 0 0 0.5em rgba(255,255,255,0.2);
 	box-shadow: 0 0 0.5em rgba(255,255,255,0.2);
 }
-
 
 .switch span {
 	display: block;
