@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, user-scalable=no">
+    <title>Tetris Multi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="tetris/buttons.css">
+    <link rel="stylesheet" href="tetris/menu.css">
+    <link rel="stylesheet" href="tetris/tetrisMulti.css">
+</head>
+<body>
+    <audio id="backgroundMusic" src="msc/mixkit-goin-back-to-alabama-830.mp3" loop="loop"></audio>
+    <audio id="placedSoundEffect" src="msc/mixkit-retro-game-notification-212.wav"></audio>
+    <audio id="ligneCompletSoundEffect" src="msc/mixkit-arcade-video-game-pop-2887.wav"></audio>
+    <div id="tetris-container" class="flexCenter container">
+        <div id="game-container" class="flexCenter">
+            <div class="console d-flex">
+                <div id="left-side" class="up-side">
+                    <div class="bestScoreFS p-3">
+                        <p>
+                            Best score : <span class="tetrissBestScore">00</span>
+                        </p>
+                        <p class="bestScoreLine">
+                            By <span class="tetrissBestScoreName">Diego</span>
+                        </p>
+                    </div>
+                    <div class="flexCenter computerBtn"><button id="menuBtn" class=>Menu</button></div>
+
+                    <div class="lvlFS">
+                        <div class="d-flex flex-column">
+                            <p class="">Level <span id="actual-level">0</span></p>
+                            <p class="next-lvl"> Next level <span id="next-level">00</span> pts</p>
+                        </div>
+                    </div>
+                    <div class="indicator flex-column m-1 p-1">
+                        <div class="d-flex lvlS">
+                            <p class="lvl">Level <span id="actual-level">0</span></p>
+                            <p class="next-lvl"> Next level <span id="next-level">00</span> pts</p>
+                        </div>
+
+                        <!-- // smartphone and fullscreen element \\ -->
+                        <div class="next-pieces">
+                            <div id="next-piece-indicator1">
+                                <p>P1</p>
+                            <!--  <canvas id="next-piece1" ></canvas> -->
+                            </div>
+                            <div class="score"><p>Score</p><span id="actual-score">00</span></div>
+                            <div id="next-piece-indicator2">
+                                <p>P2</p>
+                            <!--  <canvas id="next-piece2" ></canvas> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="holesFS">
+                        <div class="">
+                            <div class="hole"></div>
+                            <div class="hole"></div>
+                        </div>
+                        <div class="">
+                            <div class="hole"></div>
+                            <div class="hole"></div>
+                            <div class="hole"></div>
+                        </div>
+                        <div class="">
+                            <div class="hole"></div>
+                            <div class="hole"></div>
+                        </div>
+                    </div>
+                    <p class="d-flex justify-content-center m-0 p-0"><img src="../css/TetrissLogo.png" alt="Logo Tetriss Multijoueurs" class="logoFS"></p>
+                </div>
+                <!-- Junction -->
+                <div id="junction">
+                    <div id="junction1"></div>
+                    <div id="junction2"></div>
+                </div>
+                <div id="right-side">
+                    <div id="down-side" class="m-1 p-1">
+                        <!-- Grid-->
+                    </div>
+                </div>
+                <div class="pads">
+                    <div class="divCursor cursorP1">
+                        <div class="grid-item"></div>
+                        <div class="pad upPad">
+                            <div class="carre"></div>
+                            <div class="fleche"></div>
+                        </div>
+                        <div class="grid-item"></div>
+                        <div class="pad leftPad">
+                            <div class="carre"></div>
+                            <div class="fleche"></div>
+                        </div>
+                        <div class="grid-item"></div>
+                        <div class="pad rightPad">
+                            <div class="carre"></div>
+                            <div class="fleche"></div>
+                        </div>
+                        <div class="grid-item"></div>
+                        <div class="pad downPad">
+                            <div class="carre"></div>
+                            <div class="fleche"></div>
+                        </div>
+                        <div class="grid-item"></div>
+                    </div>
+
+                    <div class="flexCenter flex-column smartphoneBtn options">
+                        <button id="menuBtnS" class="menu-btn">Menu</button>
+                        <button class="start-btn">Start</button>
+                    </div>
+                    
+                    <div class="divCursor cursorP2">
+                        <div class="grid-item"></div>
+                        <div class="pad upPad">
+                            <div class="carre"></div>
+                            <div class="fleche"></div>
+                        </div>
+                        <div class="grid-item"></div>
+                        <div class="pad leftPad">
+                            <div class="carre"></div>
+                            <div class="fleche"></div>
+                        </div>
+                        <div class="grid-item"></div>
+                        <div class="pad rightPad">
+                            <div class="carre"></div>
+                            <div class="fleche"></div>
+                        </div>
+                        <div class="grid-item"></div>
+                        <div class="pad downPad">
+                            <div class="carre"></div>
+                            <div class="fleche"></div>
+                        </div>
+                        <div class="grid-item"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="menu-container" style="position:relative">
+            <div class="visPosition">
+                <img src="../css/vis.png" title="en haut à gauche" />
+                <img src="../css/vis.png" title="en haut à droite" />
+                <img src="../css/vis.png" title="en bas à droite" />
+                <img src="../css/vis.png" title="en bas à gauche" />
+            </div>
+            <div>
+                <p><img src="../css/TetrissLogo.png" alt="Logo Tetriss Multijoueurs" class="menuLogo"></p>
+                <h1>Menu</h1>
+                <div class="menuScreen">
+                    <div class="colorChoice">
+                        <p class="m-2">Choose your color</p>
+                        <div class="colors d-flex justify-content-center">
+                            <p id="colorChoiceJ1">
+                                <span>P1:</span>
+                                <button class="" id="selectedColorJ1"></button>
+                            </p>
+                            <p id="colorChoiceJ2">
+                                <span>P2:</span>
+                                <button class="" id="selectedColorJ2"></button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sounds">
+                    <div class="musicScreen">
+                        <p class="musicSettings">Music settings</p>
+                        <div>
+                            <button id="playMusicButton">Music <span id="musicIsPlayed">OFF</span></button>
+                        </div>
+                        <div class="musicFS">
+                            <div id="volumeMusicDiv">
+                                <button id="volumeMusicUp" class="roundBtn"> &#x25B2;</button>
+                                <span>Music volume :</span><span id="volumeMusicActual">5</span>
+                                <button id="volumeMusicDown" class="roundBtn">&#x25BC; </button>
+                            </div>
+                            <div id="volumeEffectDiv">
+                                <button id="volumeEffectUp" class="roundBtn"> &#x25B2;</button>
+                                <span>Effect volume :</span><span id="volumeEffectActual">5</span>
+                                <button id="volumeEffectDown" class="roundBtn">&#x25BC; </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bestScore p-4">
+                    <p>
+                        Best score : <span class="tetrissBestScore">00</span>
+                    </p>
+                    <p class="bestScoreLine">
+                        By <span class="tetrissBestScoreName">Diego</span>
+                    </p>
+                </div>
+                <div id="gameMode" class="">
+                   <div class="flex around">
+                    <div class="flex">
+                        <div class="btnModeSize" title="The bricks of both players can overlap.">
+                            <button class="ghost" id="btnGhost" >Ghost Mode </button>
+                        </div>
+                        <div>
+                            <span class="switch" id="ghost">
+                                <span class="switch-led switch-led-color ezColor" id="colorGhost">
+                                  <span class="switch-led-border">
+                                    <span class="switch-led-light">
+                                      <span class="switch-led-glow"></span>
+                                    </span>
+                                  </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <div  class="btnModeSize" title="Green Led : Easy - Orange Led : Medium - Red Led : Hard">
+                            <button class="difficulty" id="btnDiff">Difficulty</button>
+                        </div>
+                        <div>
+                            <span class="switch">
+                                <span class="switch-led switch-led-color" id="colorDiff">
+                                  <span class="switch-led-border">
+                                    <span class="switch-led-light">
+                                      <span class="switch-led-glow"></span>
+                                    </span>
+                                  </span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                   </div>
+                    <button id="startBtn">Start</button>
+                </div>
+        </div>
+    </div>
+    <div id="overlay">
+        <div id="pauseMenu">
+            <h2>Menu Pause</h2>
+            <button id="continueBtn">Continue</button>
+            <button id="exitBtn">Exit</button>
+            <button id="playMusicButtonMenu">Music <span id="musicIsPlayedMenu">OFF</span></button>
+        </div>
+    </div>
+    <div id="overlayGameOver">
+        <div id="gameOverScreen">
+            <h1>Game Over</h1>
+            <p>Score : <span id="score_actual_info_game_over"></span></p>
+            <p>Level reached : <span id="lvl_actual_info_game_over"></span></p>
+            <p>Best score : <span id="tetrissBestScore"></span> - by <span id="tetrissBestScoreName"></span></p>
+            <!-- Ajoutez d'autres éléments pour le game over selon vos besoins -->
+            <button onclick="exit()">Menu</button>
+        </div>
+    </div>
+
+  	<script src="tetris/tetrisMulti.js"></script>
+  	<script src="tetris/storageScore.js"></script>
+  </body>
+</html>

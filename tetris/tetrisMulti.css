@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html, body {width:100%; margin:0; padding:0;}
+
+body{
+    font-family: 'Press Start 2P', cursive;
+    color:rgb(11, 11, 27);
+    background-color: rgb(224, 224, 224);
+    background-image: url('../css/pixel.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+/* Shortcut */
+.flexCenter{
+    display:flex;
+    justify-content: center;
+}
+.flex{
+    display: flex;
+}
+.between{
+    justify-content: space-between;
+}
+.around{
+    justify-content: space-around;
+}
+/*MENU*/
+#menu-container{
+    text-align: center;
+    background-color: #d2d5d2;
+    flex-direction: column;
+    margin: 2em;
+    border: 1px solid rgb(75, 75, 75);
+    padding: 2em;
+    box-shadow: 0px 12px 20px 2px rgba(0,0,0,15);
+    border-radius:5px;
+}
+.visPosition img { 
+    position:absolute; display:block; width:20px; height:20px;margin:0.4em
+}
+.visPosition img:nth-child(1) { 
+    top:0; left:0; rotate: 20deg;
+}
+.visPosition img:nth-child(2) { 
+    top:0; right:0; rotate:54deg
+}
+.visPosition img:nth-child(3) { 
+    bottom:0; right:0; rotate:-16deg 
+}
+.visPosition img:nth-child(4) { 
+    bottom:0; left:0; rotate:80deg
+}
+
+h1{
+    font-size:2.5rem;
+}
+.menuLogo{
+    width:300px;
+}
+.selected{
+    color: rgb(133, 150, 150);
+}
+.btnColor{
+    padding: 10px;
+    display: none;
+}
+.menuScreen, .bestScore{
+    border-color: grey;
+    box-shadow: inset 0px 0px 69px 3px black;
+    background: linear-gradient(90deg, rgb(158, 226, 223)  20%, rgb(250, 250, 250) 71%, rgb(158, 226, 223) 92%);    border-radius:15px;
+    border: 2px inset #fff;
+    text-align: center;
+    margin:15px 0px;
+}
+
+.menuScreen {
+    padding:20px 0;
+}
+.musicBtn{
+    margin:30px  0;
+    padding: 0 10px;
+}
+.musicSettings{
+    margin:30px 0 10px 0;
+    font-size: 23px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(24, 23, 23);
+}
+/* .bestScore{
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+    margin-top :30px;
+    font-size:15px;
+} */
+
+.Yellow {border-color: yellow;}
+.Purple {border-color: rgb(184, 24, 184);}
+.Green {border-color: rgb(21, 180, 21);}
+
+#tetris-container{
+    flex-direction: column;
+}
+
+/* GAME */
+.smartphoneBtn{
+    display:none;
+}
+#right-side{
+    border-radius: 2rem;
+    box-shadow: 10px 8px 7px -1px grey;
+    border-left:10px solid rgb(161, 156, 156);
+    border-bottom:10px solid rgb(161, 156, 156);
+    background-image:url('../css/plastic.jpg');
+    background-image: url('https://mywebsites.fr/wp-content/uploads/2023/11/plastic.jpg');
+    padding:5px;
+    /**/
+}
+#left-side{
+    border-radius: 2rem;
+    box-shadow: 10px 8px 7px -1px grey;
+    border-right:10px solid rgb(161, 156, 156);
+    border-bottom:10px solid rgb(161, 156, 156);
+    background-image:url('https://mywebsites.fr/wp-content/uploads/2023/11/plastic.jpg'); 
+    margin-left:15px;
+    padding:5px;
+}
+#right-side:after {
+    content: "";
+    background-image:url('https://mywebsites.fr/wp-content/uploads/2023/11/plastic.jpg');  
+    position: relative;
+  left: 23.2em;
+  bottom: 78%;
+  width: 23px;
+  height: 30px;
+  display: block;
+  border-right: 4px solid #817e7e;
+  border-left: 4px inset #5b5b5b1a;
+
+}
+#right-side:before {
+    content: "";
+    background-image:url('https://mywebsites.fr/wp-content/uploads/2023/11/plastic.jpg');  
+    position: relative;
+  left: 23.2em;
+  top: 78%;
+  width: 23px;
+  height: 30px;
+  display: block;
+  border-right: 4px solid #817e7e;
+  border-left: 4px inset #5b5b5b1a;
+
+}
+#left-side:before {
+    content: "";
+    background-image:url('https://mywebsites.fr/wp-content/uploads/2023/11/plastic.jpg');  
+    position: relative;
+    right: 1.5em;
+    top: 44%;
+    width: 24px;
+    height: 70px;
+  display: block;
+  border-left: 4px solid #817e7e;
+  border-right: 4px inset #5b5b5b1a;
+}
+
+.indicator, .next-pieces{
+    display: flex;
+    justify-content: space-between;
+}
+.indicator, .lvlFS, #down-side, .bestScoreFS {
+    border-color: grey;
+    box-shadow: inset 0px 0px 69px 3px black;
+    background: linear-gradient(90deg, rgb(187, 234, 232) 20%, rgb(236, 255, 255) 71%, rgb(187, 234, 232) 92%);    border-radius:15px;
+    border: 2px inset #fff;
+    text-align: center;
+}
+.bestScoreFS{
+    margin:10px;
+}
+.next-lvl, .lvl{
+    font-size:10px;
+}
+.next-lvl{
+    align-self: center;
+    display: inline;
+}
+.next-pieces{
+    text-align: center;
+}
+#next-piece-indicator1, #next-piece-indicator2{
+    border: 2px groove rgba(34, 34, 32, 0.205);
+    padding:5px;
+    border-radius:15px;
+}
+#next-piece-indicator1{
+    margin-right: 5px;
+}
+#next-piece-indicator2{
+    margin-left: 5px;
+}
+#grid {
+    border: 1px solid black;
+}
+
+#next-piece1, #next-piece2{
+    border: 1px solid black;
+}
+/* Junction (charnière) */
+/* div#junction{
+    width: 60px;
+    background-image: url('https://mywebsites.fr/wp-content/uploads/2023/11/plastic.jpg');
+    box-shadow: inset 10px 0px 12px -15px black,inset -10px 0px 12px -15px black;
+    margin:8px 3px;
+} 
+
+div#junction2{
+    height: 40px;
+    background-color: #8f8d8d;
+    opacity: 0.3;
+    border-top: 2px solid #666565;
+    border-bottom: 2px solid #666565;
+} */
+.holesFS{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hole{
+    width:20px;
+    height: 20px;
+    background-color: rgb(19, 18, 18);
+    box-shadow: inset 1px 1px 3px 0px #5f5f5f;
+    border-color:#5f5f5f;
+    border:1px solid transparent;
+    border-radius: 100%;
+    margin: 20px 10px;
+}
+.logoFS{
+    width:200px;
+}
+
+/* CONSOLE FULL SCREEN */
+@media screen and (min-width:500px){
+    .console{
+        margin:50px auto;
+        padding:10px;
+        /* border-radius: 2rem;
+        box-shadow: 30px 28px 17px -11px grey;
+        border-right:10px solid rgb(161, 156, 156);
+        border-bottom:10px solid rgb(161, 156, 156);
+        background-image:url('https://mywebsites.fr/wp-content/uploads/2023/11/plastic.jpg'); */
+        flex-direction: row-reverse;
+    }
+    .indicator{
+        margin:10px !important;
+    }
+    .lvlS{display: none !important}
+
+    .lvlFS{
+        display: flex;
+        padding:10px 15px;
+        min-width:350px;
+        justify-content: center;
+        margin:15px 10px;
+    }
+    .score{
+        order:-1;
+        flex: 0 0 100%;
+        font-size:18px;
+        margin-bottom:20px;
+    }
+    .next-pieces{
+        flex-wrap: wrap;
+    }
+    .computerBtn{
+        display:flex;
+        justify-content: center;
+    }
+    .computerBtn #menuBtn {
+        width:200px;
+    }
+    .bestScoreLine{
+        font-size: 20px;
+        margin:0;
+    }
+    .bestScoreFS, .lvlFS{
+        box-shadow: inset 0px 0px 45px 3px black;
+    }
+}
+@media screen and (min-width:995px){
+    /* MENU FULLSCREEN */
+        .musicFS{
+            display: flex;
+            justify-content: space-around;
+        }
+}
+
+/* MOBILE FIRST */
+@media screen and (max-width:500px){
+    #junction, .lvlFS, .bestScoreFS, .holesFS, .logoFS, #left-side:before , #right-side:after, #right-side:before {
+        display: none;
+    }
+    .menuLogo{
+        width:130px;
+    }
+    h1{
+        font-size:1.3rem;
+    }
+    .console, .up-side {
+        flex-direction: column;
+    }
+    .console{
+        border-right: 10px inset rgb(161, 156, 156);
+        border-bottom: 10px inset rgb(161, 156, 156);
+        background-image: url('https://mywebsites.fr/wp-content/uploads/2023/11/plastic.jpg');
+        border-radius: 25px;
+        }
+    .computerBtn{
+        display:none;
+    }
+    .smartphoneBtn{
+        display:flex;
+    }
+    #menu-container{
+        text-align: center;
+        background-color: #d2d5d2;
+        flex-direction: column;
+        margin: 0.2em;
+        border: 1px solid rgb(189, 186, 186);
+        padding: 1em;
+        box-shadow: 0px 12px 20px 2px rgba(0,0,0,15);
+        border-radius: 5px;
+    }
+    #left-side, #up-side,#right-side{
+        border: none;
+        box-shadow: none;
+        margin-left: 0;
+        background-image: none;
+    }
+    .pads{
+        margin-left: 7px;
+    }
+
+    .bestScore{
+        border-color: grey;
+        box-shadow: inset 0px 0px 40px 4px rgb(0, 0, 0);
+        background: linear-gradient(90deg, rgb(187, 234, 232) 20%, rgb(236, 255, 255) 71%, rgb(187, 234, 232) 92%);    border-radius:15px;
+        border: 2px inset #fff;
+        text-align: center;
+        line-height: 0.5em;
+        padding:5px;
+    }
+    .bestScoreLine{
+        font-size: 15px;
+        margin:0;
+    }
+    .lvlS{
+        display: flex;
+        justify-content: space-around;
+    }
+    .musicSettings{
+        margin:30px 0 5px 0;
+        font-size: 18px;
+    }
+}
+@media screen and (max-width:360px){
+    #tetris-container{
+        width:356px;
+        margin:0;
+        padding:2px;
+    }
+    #game-container{
+        background-image:url('https://mywebsites.fr/wp-content/uploads/2023/11/plastic.jpg');
+    }
+    #next-piece-indicator1, #next-piece-indicator2{
+        width: 100px;
+        padding:5px;
+        border-radius:15px;
+    }
+    /* Menu buttons */
+    .sounds{
+        margin:20px 0 20px 0;
+    }
+    .menuScreen{
+        padding:10px;
+    }
+}

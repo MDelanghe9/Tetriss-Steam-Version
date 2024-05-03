@@ -1,0 +1,327 @@
+/* MENU OPTIONS BUTTONS */
+#gameMode button, #startBtn {
+    margin:20px 0;
+    width:50%;
+    height:50px;
+}
+.colorChoice #selectedColorJ1, .colorChoice #selectedColorJ2{
+    font-size:15px;
+    min-width: 102px;
+}
+.colors p{
+    margin: 0 30px;
+    font-size:18px;
+}
+.sounds, .colorChoice {
+    font-size:23px;
+}
+.bestScore{
+    margin-top:20px;
+    font-size:15px !important;
+}
+#volumeMusicDiv, #colorChoiceJ1, #colorChoiceJ2{
+    font-size:15px;
+}
+#volumeEffectDiv{
+    font-size:14.5px;
+}
+
+/* GAME BUTTONS */
+.roundBtn{
+	text-shadow: 1px 1px #d3d3d3, -1px -1px #a09d9d;
+    font-size:20px;
+	text-align: center;
+	display: inline-block;
+	width: 40px;
+    height:40px;
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+	-o-border-radius: 2em;
+	border-radius: 2em;
+	background-color: hsl(0, 1%, 65%);
+	-webkit-box-shadow:  0 .2em #7c7c7c;
+	-moz-box-shadow:  0 .2em #7c7c7c;
+	-o-box-shadow:  0 .2em #7c7c7c;
+	box-shadow:  0.1em 0.2em 0 0  #7c7c7c; /* ombre dessous*/
+	color: #544f4f;
+    border-color: #ffffff41;
+	margin: 7px 0;
+    background-image: -o-linear-gradient(left top, #d3d3d3 3%, #cbcbcb 20%, #f0f0f0 99%);
+    background-image: -moz-linear-gradient(left top, #d3d3d3 3%, #cbcbcb 20%, #f0f0f0 99%);
+    background-image: -webkit-linear-gradient(left top, #d3d3d3 3%, #cbcbcb 20%, #f0f0f0 99%);
+    background-image: linear-gradient(left top, #d3d3d3 3%, #cbcbcb 20%, #f0f0f0 99%);
+	cursor: pointer;
+}
+#menuBtn,.menu-btn, .start-btn, #gameMode button, #startBtn,
+ #selectedColorJ1, #selectedColorJ2, #playMusicButton {
+    font-size:20px;
+    text-align: center;
+	display: inline-block;
+	margin:5px;
+    font-weight: bold;
+    padding: 6px 0 4px 6px;
+    background-color: lightgray;
+    text-shadow: -1px -1px black, 1px 1px white;
+    color: gray;
+    -webkit-border-radius: 7px;
+	-moz-border-radius: 7px;
+	-o-border-radius: 7px;
+	border-radius: 7px;
+    box-shadow: 0.1em .2em #7c7c7c; 
+    cursor: pointer;
+}
+.menu-btn, .start-btn, #gameMode button, #startBtn{
+    width:100%;
+    margin:10px 0;
+}
+#roundBtn:active, .menu-btn:active, .start-btn:active, #gameMode button:active, #startBtn:active,
+ #selectedColorJ1:active, #selectedColorJ2:active, #playMusicButton:active, #volumeMusicUp:active, 
+ #volumeMusicDown:active, #volumeEffectUp:active, #volumeEffectDown:active {
+	box-shadow: none;
+	position: relative;
+	top: .2em;
+}
+
+
+/* Smartphone */
+.menu-btn, .start-btn{
+    border-radius: 5px;
+    text-align: center;
+    font-size:12px;
+    background-color:rgb(51, 48, 48);
+    color:grey;
+    font-weight:200;
+    text-shadow: -1px -1px rgb(255, 255, 255), 1px 1px black;
+}
+
+/* PAD DIRECTIONNEL */
+.divCursor {
+    display: grid;
+    grid-template-columns: repeat(3, 35px);
+    grid-template-rows: repeat(3, 35px);
+    gap: 5px; /* Add gutter or spacing here */
+}
+.options{
+    margin:0 20px;
+}
+.pads{
+    max-width: 360px;
+    display: flex;
+    justify-content: space-between;
+    margin: 9px 0;
+}
+.pad {
+    margin-top:5px;
+    position: relative;
+    width:35px;
+    height: 35px;
+}
+.carre, .fleche {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20%;
+    background-color:rgb(51, 48, 48);
+    color:grey;
+    box-shadow: 0.1em .1em #7c7c7c; 
+}
+
+.carre {
+    width: 100%;
+    height: 100%;
+}
+
+.fleche {
+    transform: rotate(45deg);
+    width: 80%;
+    height: 80%;
+    top:45%;
+    left:10%;
+}
+.leftPad{
+    transform:rotate(-90deg)
+}
+.rightPad{
+    transform:rotate(90deg)
+}
+.downPad{
+    transform:rotate(180deg)
+}
+/* Menu Screen */
+@media screen and (min-width:500px){
+    .pads{display:none;}
+    #playMusicButton {
+        width:35%;
+        margin-bottom:20px;
+    }
+}
+/* between cause container */
+@media screen and (max-width:770px){
+    #gameMode .ghost, #gameMode .difficulty {
+        font-size:14px;
+    }
+}
+/* Menu Smartphone */
+@media screen and (max-width:500px){
+    .pads{
+        max-width: 360px;
+        display: flex;
+        justify-content: space-between;
+        margin: 9px 0;
+    }
+    .sounds, .colorChoice {
+        font-size:17px;
+    }
+
+   #colorChoiceJ1, #colorChoiceJ2{
+        font-size:12px;
+    }
+    .colors p, #volumeMusicDiv {
+        margin: 0 15px;
+        font-size:12px;
+    }
+    #volumeEffectDiv {
+        font-size:11.5px;
+    }
+    .menu-btn, .start-btn, #gameMode button, #startBtn,
+     #selectedColorJ1, #selectedColorJ2, #playMusicButton{
+       margin:10px;
+    }
+    .menu-btn, .start-btn, #gameMode button, #startBtn, #playMusicButton{
+       width:90%; 
+    }
+    .roundBtn{
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+        line-height: 0px;
+    }
+    .bestScore{
+        margin-top:20px;
+        font-size:11px !important;
+    }
+    #gameMode button, #startBtn, #playMusicButton {
+        font-size:16px;
+    }
+    .ghost, .difficulty{
+        font-size:12px !important;
+    }
+    #playMusicButton {
+        margin-bottom:10px;
+        height:44px;
+    }
+    .menu-btn, .start-btn{
+        font-size: 10px;
+    }
+    #selectedColorJ1, #selectedColorJ2{
+        font-size: 13px !important;
+    }
+}
+
+.ghost, .difficulty{
+    letter-spacing: 0.1em;
+}
+/*-- Responsive btn mode size  --  */
+@media screen and (min-width:992px){
+    .btnModeSize{
+        width:350px;
+     }
+}
+/*  -- LED  --  */
+.switch, .led {
+    font-size:8px;
+	display: inline-block;
+	margin: 3em 0em 0em 1em;
+	position: relative;
+	border-radius: 3.5em;
+	-webkit-box-shadow: 0 0 0.5em rgba(255,255,255,0.2);
+	-moz-box-shadow: 0 0 0.5em rgba(255,255,255,0.2);
+	box-shadow: 0 0 0.5em rgba(255,255,255,0.2);
+}
+
+
+.switch span {
+	display: block;
+	-webkit-transition: top 0.2s;
+	-moz-transition: top 0.2s;
+	-ms-transition: top 0.2s;
+	-o-transition: top 0.2s;
+	transition: top 0.2s;
+}
+.switch-led {
+	border-radius: 1.4em;
+    background: rgb(111, 149, 129);
+  border: 0.1em solid rgba(0, 104, 56, 0.56);
+}
+.switch-led-border {
+	border: 0.2em solid black;
+	border-radius: 1.3em;
+}
+.switch-led-light {
+	border-radius: 1.1em;
+	-webkit-box-shadow: 0 0 0.5em rgba(255,255,255,0.5) inset;
+	-moz-box-shadow: 0 0 0.5em rgba(255,255,255,0.5) inset;
+	box-shadow: 0 0 0.5em rgba(255,255,255,0.5) inset;
+}
+.switch-led-glow {
+	width: 2em;
+	height: 2em;
+	position: relative;
+	border-radius: 1em;
+}
+.switch-led-glow:before {
+	content: '';
+	display: block;
+	width: 0.6em;
+	height: 0.6em;
+	position: absolute;
+	top: 0.3em;
+	left: 0.7em;
+	background: rgba(255,255,255,0.2);
+	border-radius: 0.3em;
+	-webkit-box-shadow: 0 0 1em rgba(255,255,255,0.75);
+	-moz-box-shadow: 0 0 1em rgba(255,255,255,0.75);
+	box-shadow: 0 0 1em rgba(255,255,255,0.75);
+}
+.switch-led-glow:after {
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0.2;
+	filter: alpha(opacity=20);
+	border: 1em solid #fff;
+	border-color: transparent #c6bdbd transparent #d0d0d0;
+	border-radius: 1em;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.switch-led:after {
+	display: block;
+	width: 100%;
+	position: absolute;
+}
+.switch-led-color {
+	border-top: 0.1em solid rgba(0,161,75,0.5);
+	border-bottom: 0.1em solid rgba(255,255,255,0.25);
+    background: rgb(0,161,75);
+	border: 0.1em solid rgb(0,104,56);
+}
+.ezColor{
+    background: rgb(13, 237, 118);
+    box-shadow: 0 0 3em rgb(0,161,75);
+}
+.medColor{
+    background: rgb(255, 148, 9);
+    box-shadow: 0 0 3em rgb(219, 134, 23);
+}
+.hardColor{
+    background: rgb(255, 9, 9);
+    box-shadow: 0 0 3em rgb(187, 21, 21);
+}

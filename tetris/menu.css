@@ -1,0 +1,54 @@
+/* MENU PAUSE */
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
+
+#pauseMenu {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#continueBtn, #exitBtn, #playMusicButtonMenu{
+    background: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#exitBtn {
+    background: #a8101a;
+}
+#playMusicButtonMenu {
+    background: #421e5a;
+}
+/* MENU GAMEOVER */
+#overlayGameOver {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+}
