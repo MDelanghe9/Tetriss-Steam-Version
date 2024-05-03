@@ -1,0 +1,15 @@
+{
+  "name": "tetriss",
+  "version": "1.0.0",
+  "description": "Game for playing Tetriss at two player on coop",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "Maxime Delanghe",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^30.0.2"
+  }
+}
