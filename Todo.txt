@@ -1,6 +1,7 @@
 - remove all features uselless for steam version (phone view, session storage) // Need Alison
 - test // DONE
-- add electron
+- add electron (add gitignore) // DONE
+    
 - test compilation code
 - add sound controller menu and control + and - for music and sound
 - review controler feature
@@ -8,6 +9,9 @@
 - review steam trophies
 - add steam trophies
 - review score and speed code
+
+- fix img
+
 - clean the code
 - review music and sound free-use or add credits
 - creat visual for steam
