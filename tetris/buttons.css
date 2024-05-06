@@ -85,10 +85,6 @@
 /* Menu Screen */
 @media screen and (min-width:500px){
     .pads{display:none;}
-    #playMusicButton {
-        width:35%;
-        margin-bottom:20px;
-    }
 }
 /* between cause container */
 @media screen and (max-width:770px){

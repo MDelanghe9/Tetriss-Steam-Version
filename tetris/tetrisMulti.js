@@ -944,79 +944,75 @@ const backgroundMusic = document.getElementById('backgroundMusic');
 
 const volumeMusicUp = document.getElementById("volumeMusicUp");
 const volumeMusicDown = document.getElementById("volumeMusicDown");
+const rangeMusicBtn = document.getElementById("rangeMusicButtonMenu");
+const rangeEffectBtn = document.getElementById("rangeEffectButtonMenu");
+
 const volumeEffectUp = document.getElementById("volumeEffectUp");
 const volumeEffectDown = document.getElementById("volumeEffectDown");
 const volumeMusicActual = document.getElementById("volumeMusicActual");
 const volumeEffectActual = document.getElementById("volumeEffectActual");
-const playMusicButton = document.getElementById("playMusicButton");
-const playMusicButtonMenu = document.getElementById("playMusicButtonMenu");
-const musicIsPlayed = document.getElementById("musicIsPlayed");
-const musicIsPlayedMenu = document.getElementById("musicIsPlayedMenu");
 
-var volumeMusic = 5;
-var volumeEffect = 5;
-var musicPlayBool = false;
-backgroundMusic.volume = 0.5;
-placedSoundEffect.volume = 0.5;
-ligneCompletSoundEffect.volume = 0.5;
+var volumeMusic = 0;
+var volumeEffect = 1;
+backgroundMusic.volume = 0.0;
+backgroundMusic.pause();
+placedSoundEffect.volume = 0.1;
+ligneCompletSoundEffect.volume = 0.1;
+
+function updateMusicVolume(value) {
+    volumeMusic = value; 
+    volumeMusicActual.innerHTML=value;
+    backgroundMusic.volume = (value/10); // Augmente le volume de 0.1 (10%)
+    if (volumeMusic > 0 && backgroundMusic.paused) {
+        backgroundMusic.play();
+    } else if (volumeMusic == 0){
+        backgroundMusic.pause();
+        backgroundMusic.currentTime = 0;
+    }
+}
+rangeMusicBtn.addEventListener("input", function() {
+    updateMusicVolume( Number(rangeMusicBtn.value))
+});
 
 volumeMusicUp.addEventListener("click", function() {
     if (volumeMusic <10) {
-        volumeMusic = volumeMusic +1; 
-        volumeMusicActual.innerHTML=volumeMusic;
-        backgroundMusic.volume += 0.1; // Augmente le volume de 0.1 (10%)
+        rangeMusicBtn.value = Number(volumeMusic+1);
+        updateMusicVolume(Number(volumeMusic) +1)
     }
 });
 volumeMusicDown.addEventListener("click", function() {
     if (volumeMusic >0) {
-        volumeMusic = volumeMusic -1; 
-        volumeMusicActual.innerHTML=volumeMusic;
-        backgroundMusic.volume -= 0.1; // Diminue le volume de 0.1 (10%)
+        rangeMusicBtn.value = Number(volumeMusic-1);
+        updateMusicVolume(Number(volumeMusic) -1)
     }
+});
+function updateSoundEffectVolume(value) {
+    volumeEffect = value; 
+    placedSoundEffect.volume = Number(volumeEffect)/10;
+    ligneCompletSoundEffect.volume = Number(volumeEffect)/10;
+    volumeEffectActual.innerHTML = volumeEffect;
+    if (placedSoundEffect.duration > 0 && !placedSoundEffect.paused) {
+        placedSoundEffect.pause();
+        placedSoundEffect.currentTime = 0; // Remettre la lecture au début du son
+    }
+    placedSoundEffect.play();
+}
+rangeEffectBtn.addEventListener("input", function() {
+    updateSoundEffectVolume(Number(rangeEffectBtn.value))
 });
 volumeEffectUp.addEventListener("click", function() {
     if (volumeEffect <10) {
-        volumeEffect = volumeEffect +1; 
-        volumeEffectActual.innerHTML=volumeEffect;
-        placedSoundEffect.volume += 0.1;
-        ligneCompletSoundEffect.volume += 0.1;
-        if (placedSoundEffect.duration > 0 && !placedSoundEffect.paused) {
-            placedSoundEffect.pause();
-            placedSoundEffect.currentTime = 0; // Remettre la lecture au début du son
-        }
-        placedSoundEffect.play();
+        rangeEffectBtn.value = Number(volumeEffect+1);
+        updateSoundEffectVolume(Number(volumeEffect) +1)
     }
 });
 volumeEffectDown.addEventListener("click", function() {
     if (volumeEffect >0) {
-        volumeEffect = volumeEffect -1; 
-        volumeEffectActual.innerHTML=volumeEffect;
-        placedSoundEffect.volume -= 0.1;
-        ligneCompletSoundEffect.volume -= 0.1;
-        if (placedSoundEffect.duration > 0 && !placedSoundEffect.paused) {
-            placedSoundEffect.pause();
-            placedSoundEffect.currentTime = 0; // Remettre la lecture au début du son
-        }
-        placedSoundEffect.play();
+        rangeEffectBtn.value = Number(volumeEffect-1);
+        updateSoundEffectVolume(Number(volumeEffect)-1)
     }
 });
 
-function turnMusicOnOff(){
-    if (musicPlayBool) {
-        musicPlayBool = false;
-        backgroundMusic.pause()
-        musicIsPlayed.innerHTML="OFF"
-        musicIsPlayedMenu.innerHTML="OFF"
-    }else{
-        musicPlayBool = true;
-        backgroundMusic.play()
-        console.log("Son en cours de lecture.");
-        musicIsPlayed.innerHTML="ON"
-        musicIsPlayedMenu.innerHTML="ON"
-    }
-}
-playMusicButton.addEventListener("click", () => {turnMusicOnOff()});
-playMusicButtonMenu.addEventListener("click", () => {turnMusicOnOff()});
 /* --- SOUND PART END --- */
 
 // --- Menu Pause PART START --- //

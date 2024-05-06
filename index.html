@@ -109,20 +109,17 @@
 
                 <div class="sounds">
                     <div class="musicScreen">
-                        <p class="musicSettings">Music settings</p>
-                        <div>
-                            <button id="playMusicButton">Music <span id="musicIsPlayed">OFF</span></button>
-                        </div>
+                        <p class="musicSettings">Sounds settings</p>
                         <div class="musicFS">
                             <div id="volumeMusicDiv">
-                                <button id="volumeMusicUp" class="roundBtn"> &#x25B2;</button>
-                                <span>Music volume :</span><span id="volumeMusicActual">5</span>
                                 <button id="volumeMusicDown" class="roundBtn">&#x25BC; </button>
+                                <span>Music volume :</span><span id="volumeMusicActual">0</span>
+                                <button id="volumeMusicUp" class="roundBtn"> &#x25B2;</button>
                             </div>
                             <div id="volumeEffectDiv">
-                                <button id="volumeEffectUp" class="roundBtn"> &#x25B2;</button>
-                                <span>Effect volume :</span><span id="volumeEffectActual">5</span>
                                 <button id="volumeEffectDown" class="roundBtn">&#x25BC; </button>
+                                <span>Effect volume :</span><span id="volumeEffectActual">1</span>
+                                <button id="volumeEffectUp" class="roundBtn"> &#x25B2;</button>
                             </div>
                         </div>
                     </div>
@@ -175,11 +172,21 @@
         </div>
     </div>
     <div id="overlay">
-        <div id="pauseMenu">
-            <h2>Menu Pause</h2>
-            <button id="continueBtn">Continue</button>
-            <button id="exitBtn">Exit</button>
-            <button id="playMusicButtonMenu">Music <span id="musicIsPlayedMenu">OFF</span></button>
+        <div id="pauseMenu" class="">
+            <div class="">
+                <div class="">
+                <h2>Menu Pause</h2>
+                <button id="continueBtn">Continue</button>
+                <button id="exitBtn">Exit</button>
+            </div>
+            <div class="">
+                <h5>Music volume</h5>
+                <input type="range" min="0" max="10" value="0" class="slider" id="rangeMusicButtonMenu">
+            </div>
+            <div class="">
+                <h5>Effects volume</h5>
+                <input type="range" min="0" max="10" value="1" class="slider" id="rangeEffectButtonMenu">
+            </div>
         </div>
     </div>
     <div id="overlayGameOver">

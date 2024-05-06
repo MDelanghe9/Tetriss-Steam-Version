@@ -135,3 +135,5 @@ npm-debug.log
 .nyc
 .env
 .DS_Store
+out
+forge.config.js
