@@ -20,7 +20,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-#continueBtn, #exitBtn, #playMusicButtonMenu{
+#continueBtn, #exitBtn{
     background: #4CAF50;
     color: #fff;
     padding: 10px 20px;
@@ -32,9 +32,7 @@
 #exitBtn {
     background: #a8101a;
 }
-#playMusicButtonMenu {
-    background: #421e5a;
-}
+
 /* MENU GAMEOVER */
 #overlayGameOver {
     display: none;
